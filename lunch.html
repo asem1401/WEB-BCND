@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Lunch — Mini Recipe Book</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+</head>
+<body>
+  
+  <div id="scrollBar"></div>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom sticky-top" aria-label="Main navigation">
+    <div class="container">
+      <a class="navbar-brand d-flex align-items-center" href="index.html">
+        <img src="logos.png" alt="Mini Recipe Book logo" width="28" height="28" class="me-2" />
+        <span class="fw-semibold">Mini Recipe Book</span>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="mainNav">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+
+          <button id="theme-switch">
+            <svg xmlns="http://www.w3.org/2000/svg" height="48px" viewBox="0 -960 960 960" width="48px" fill="#000000"><path d="M479.96-117.37q-151.24 0-256.92-105.67-105.67-105.68-105.67-256.92t105.69-257.07Q328.74-842.87 480-842.87q7.52 0 16.04.38 8.53.38 22.29 1.38-33.85 32.96-52.66 78.88-18.8 45.93-18.8 96.49 0 91.3 63.98 155.2 63.97 63.91 155.37 63.91 50.32 0 96.37-17.19 46.04-17.18 78.76-48.27.76 11.76 1.14 18.71.38 6.96.38 13.12 0 151.22-105.84 257.05Q631.2-117.37 479.96-117.37Zm.04-68.13q104.22 0 182.35-63.91 78.13-63.92 98.37-149.89-23.09 10.28-50.08 15.3-27 5.02-53.51 4.54-113.97-3.11-194.15-82.8-80.18-79.7-83.52-195.11-.24-21.93 4.16-47.59 4.4-25.67 16.68-58.76-92.73 27.48-153.77 107.11Q185.5-576.98 185.5-480q0 122.89 85.81 208.69Q357.11-185.5 480-185.5Zm-6.39-289.11Z"/></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" height="48px" viewBox="0 -960 960 960" width="48px" fill="#000000"><path d="M480.03-348.37q54.62 0 93.23-38.57 38.61-38.56 38.61-93.09 0-54.62-38.64-93.23-38.63-38.61-93.26-38.61-54.62 0-93.11 38.64-38.49 38.63-38.49 93.26 0 54.62 38.57 93.11 38.56 38.49 93.09 38.49ZM480-280q-83 0-141.5-58.5T280-480q0-83 58.5-141.5T480-680q83 0 141.5 58.5T680-480q0 83-58.5 141.5T480-280ZM204.07-445.93H35.93v-68.14h168.14v68.14Zm720 0H755.93v-68.14h168.14v68.14Zm-478.14-310v-168.14h68.14v168.14h-68.14Zm0 720v-168.14h68.14v168.14h-68.14ZM261.76-652.02l-105.5-102.74 48.5-49.98 102.22 105.26-45.22 47.46Zm494.48 495.76-104.22-105.5L699-308.74l104.74 103.26-47.5 49.22ZM651.26-699l103.5-104.74 49.98 47.5-104.26 104.22L651.26-699Zm-495 494.24 104.5-104.22L308.74-261 205.48-156.26l-49.22-48.5ZM480-480Z"/></svg>
+          </button>
+
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="breakfast.html">Breakfast</a></li>
+          <li class="nav-item"><a class="nav-link active" aria-current="page" href="lunch.html">Lunch</a></li>
+          <li class="nav-item"><a class="nav-link" href="dinner.html">Dinner</a></li>
+          <li class="nav-item"><a class="nav-link" href="desserts.html">Desserts</a></li>
+          <li class="nav-item"><a class="nav-link" href="favorites.html">Favorites</a></li>
+          <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+
+          
+
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  
+ <main class="py-5">
+    <div class="container">
+      <header class="mb-4">
+        <h1 class="display-6 fw-bold">Lunch Recipes</h1>
+        <p class="lead">Tasty meals to keep you going through the day.</p>
+      </header>
+      <input id="searchBox" class="form-control mb-4" type="text" placeholder="Search recipes...">
+      <div class="row g-4">
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="card h-100 shadow-sm">
+            <img src="images/salat.png" class="card-img-top object-fit-contain" alt="Caesar salad" />
+            <div class="card-body d-flex flex-column">
+              <h5 class="card-title">Caesar Salad</h5>
+              <p class="card-text flex-grow-1">Classic salad with crispy croutons and parmesan.</p>
+              <ol class="recipeText">
+              <li>1 head romaine lettuce, chopped</li>
+              <li>1/2 cup croutons</li>
+              <li>1/4 cup grated Parmesan cheese</li>
+              <li>1/3 cup Caesar dressing</li>
+              </ol>
+              <button class="copyBtn">Copy</button>
+              <br>
+              <button class="btn btn-primary"><a href="https://youtu.be/_YCJ2Sfdl3U">Open Recipe</a></button>
+              <br>
+              <button class="btn btn-outline-warning add-fav mt-2"
+                  data-title="Caesar Salad"
+                  data-img="images/salat.png"
+                  data-desc="Classic salad with crispy croutons and parmesan.">
+                ⭐ Favorite
+              </button>
+
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="card h-100 shadow-sm">
+            <img src="images/Sandwich.png" class="card-img-top object-fit-contain" alt="Caprese sandwich" />
+            <div class="card-body d-flex flex-column">
+              <h5 class="card-title">Caprese Sandwich</h5>
+              <p class="card-text flex-grow-1">Fresh mozzarella, tomato, and basil sandwich.</p>
+              <ol class="recipeText">
+              <li>2 slices ciabatta bread</li>
+              <li>4 slices fresh mozzarella</li>
+              <li>2 slices tomato</li>
+              <li>Fresh basil leaves</li>
+              </ol>
+              <button class="copyBtn">Copy</button>
+              <br>
+              <button class="btn btn-primary"><a href="https://www.youtube.com/watch?v=nHGjSLnCKU4&utm">Open Recipe</a></button>
+              <br>
+              <button class="btn btn-outline-warning add-fav mt-2"
+                  data-title="Caprese Sandwich"
+                  data-img="images/Sandwich.png"
+                  data-desc="Fresh mozzarella, tomato, and basil sandwich.">
+                ⭐ Favorite
+              </button>
+
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="card h-100 shadow-sm">
+            <img src="images/soup.png" class="card-img-top object-fit-contain" alt="Chicken noodle soup" />
+            <div class="card-body d-flex flex-column">
+              <h5 class="card-title">Chicken Noodle Soup</h5>
+              <p class="card-text flex-grow-1">Comforting soup with tender chicken and vegetables.</p>
+              <ol class="recipeText">
+              <li>1 lb chicken breast, cooked and shredded</li>
+              <li>6 cups chicken broth</li>
+              <li>2 cups egg noodles</li>
+              <li>1 cup chopped carrots and celery</li>
+              </ol>
+              <button class="copyBtn">Copy</button>
+              <br>
+              <button class="btn btn-primary"><a href="https://www.youtube.com/watch?v=Hd53fxoLlAo&utm_">Open Recipe</a></button>
+              <br>
+              <button class="btn btn-outline-warning add-fav mt-2"
+                  data-title="Chicken Noodle Soup"
+                  data-img="images/soup.png"
+                  data-desc="Comforting soup with tender chicken and vegetables.">
+                ⭐ Favorite
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="card h-100 shadow-sm">
+            <img src="images/stir-fry.png" class="card-img-top object-fit-contain" alt="Chicken noodle soup" />
+            <div class="card-body d-flex flex-column">
+              <h5 class="card-title">Beef Stir-Fry</h5>
+              <p class="card-text flex-grow-1">Tender beef sautéed with colorful bell peppers and soy sauce.</p>
+              <ol class="recipeText">
+              <li>1/2 lb beef sirloin, thinly sliced</li>
+              <li>1 cup sliced bell peppers</li>
+              <li>2 tablespoons soy sauce</li>
+              <li>1 tablespoon vegetable oil</li>
+              </ol>
+              <button class="copyBtn">Copy</button>
+              <br>
+              <button class="btn btn-primary"><a href="https://www.youtube.com/watch?v=cyS8ycmGs1U&utm_source=chatgpt.com">Open Recipe</a></button>
+              <br>
+              <button class="btn btn-outline-warning add-fav mt-2"
+                  data-title="Beef Stir-Fry"
+                  data-img="images/stir-fry.png"
+                  data-desc="Tender beef sautéed with colorful bell peppers and soy sauce.">
+                ⭐ Favorite
+              </button>
+
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="card h-100 shadow-sm">
+            <img src="images/tacos.png" class="card-img-top object-fit-contain" alt="Chicken noodle soup" />
+            <div class="card-body d-flex flex-column">
+              <h5 class="card-title">Shrimp Tacos</h5>
+              <p class="card-text flex-grow-1">Soft tortillas filled with spicy shrimp, avocado, and fresh salsa.</p>
+              <ol class="recipeText">
+              <li>1/2 lb shrimp, peeled and deveined</li>
+              <li>4 small tortillas</li>
+              <li>1 avocado, sliced</li>
+              <li>1/2 cup fresh salsa</li>
+              </ol>
+              <button class="copyBtn">Copy</button>
+              <br>
+              <button class="btn btn-primary"><a href="https://www.youtube.com/watch?v=qjYP5-ZutEk&utm_source=chatgpt.com">Open Recipe</a></button>
+              <br>
+              <button class="btn btn-outline-warning add-fav mt-2"
+                  data-title="Shrimp Tacos"
+                  data-img="images/tacos.png"
+                  data-desc="Soft tortillas filled with spicy shrimp, avocado, and fresh salsa.">
+                ⭐ Favorite
+              </button>
+
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="card h-100 shadow-sm">
+            <img src="images/ramen.png" class="card-img-top object-fit-contain" alt="Chicken noodle soup" />
+            <div class="card-body d-flex flex-column">
+              <h5 class="card-title">Ramen Bowl</h5>
+              <p class="card-text flex-grow-1">Japanese noodle soup with soft-boiled egg, tender pork, and miso broth.</p>
+              <ol class="recipeText">
+              <li>2 packs ramen noodles</li>
+              <li>4 cups miso broth</li>
+              <li>1 soft-boiled egg, halved</li>
+              <li>1/2 cup sliced pork belly</li>
+              </ol>
+              <button class="copyBtn">Copy</button>
+              <br>
+              <button class="btn btn-primary"><a href="https://www.youtube.com/watch?v=aafmrrx7Bh4&utm_source=chatgpt.com">Open Recipe</a></button>
+              <br>
+              <button class="btn btn-outline-warning add-fav mt-2"
+                  data-title="Ramen Bowl"
+                  data-img="images/ramen.png"
+                  data-desc="Japanese noodle soup with egg, pork and miso broth.">
+                ⭐ Favorite
+              </button>
+
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="card h-100 shadow-sm">
+            <img src="images/shakshuka.png" class="card-img-top object-fit-contain" alt="Chicken noodle soup" />
+            <div class="card-body d-flex flex-column">
+              <h5 class="card-title">Shakshuka with Pita</h5>
+              <p class="card-text flex-grow-1">Eggs poached in a rich tomato sauce with spices, served with pita bread.</p>
+              <ol class="recipeText">
+              <li>4 large eggs</li>
+              <li>2 cups tomato sauce</li>
+              <li>1 teaspoon cumin</li>
+              <li>4 pita breads</li>
+              </ol>
+              <button class="copyBtn">Copy</button>
+              <br>
+              <button class="btn btn-primary"><a href="https://www.youtube.com/watch?v=swm8OKalgrEw">Open Recipe</a></button>
+              <br>
+              <button class="btn btn-outline-warning add-fav mt-2"
+                  data-title="Shakshuka with Pita"
+                  data-img="images/shakshuka.png"
+                  data-desc="Eggs poached in tomato sauce with cumin, served with pita.">
+                ⭐ Favorite
+              </button>
+
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="card h-100 shadow-sm">
+            <img src="images/chicken-curry.png" class="card-img-top object-fit-contain" alt="Chicken noodle soup" />
+            <div class="card-body d-flex flex-column">
+              <h5 class="card-title">Mango Chicken Curry</h5>
+              <p class="card-text flex-grow-1">A sweet and spicy curry with mango, coconut milk, and tender chicken.</p>
+              <ol class="recipeText">
+              <li>1 lb chicken breast, cubed</li>
+              <li>1 cup mango chunks</li>
+              <li>1 can coconut milk</li>
+              <li>2 tablespoons curry powder</li>
+              </ol>
+              <button class="copyBtn">Copy</button>
+              <br>
+              <button class="btn btn-primary"><a href="https://www.youtube.com/watch?v=yrm4g02FnGE&utm_source=chatgpt.com">Open Recipe</a></button>
+              <br>
+              <button class="btn btn-outline-warning add-fav mt-2"
+                  data-title="Mango Chicken Curry"
+                  data-img="images/chicken-curry.png"
+                  data-desc="Sweet and spicy curry with mango, coconut milk, and chicken.">
+                ⭐ Favorite
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="card h-100 shadow-sm">
+            <img src="images/mushroom.png" class="card-img-top object-fit-contain" alt="Chicken noodle soup" />
+            <div class="card-body d-flex flex-column">
+              <h5 class="card-title">Truffle Mushroom Risotto</h5>
+              <p class="card-text flex-grow-1">Creamy Italian rice infused with truffle oil and wild mushrooms.</p>
+              <ol class="recipeText">
+              <li>1 cup Arborio rice</li>
+              <li>4 cups vegetable broth</li>
+              <li>1 cup mixed wild mushrooms</li>
+              <li>1 tablespoon truffle oil</li>
+              </ol>
+              <button class="copyBtn">Copy</button>
+              <br>
+              <button class="btn btn-primary"><a href="https://www.youtube.com/watch?v=JPEz_I4065g&utm_source=chatgpt.com">Open Recipe</a></button>
+              <br>
+              <button class="btn btn-outline-warning add-fav mt-2"
+                  data-title="Truffle Mushroom Risotto"
+                  data-img="images/mushroom.png"
+                  data-desc="Creamy risotto with mushrooms and truffle oil.">
+                ⭐ Favorite
+              </button>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="py-4 bg-dark text-white mt-5" role="contentinfo">
+    <div class="container text-center small">
+      Team Mini Recipe Book • Members: Abzal, Inabat, Gulzada, Asem
+    </div>
+  </footer>
+
+  <div id="spotlightOverlay">
+    <div id="spotlightBox">
+      <input type="text" id="spotlightInput" placeholder="Search recipes..." autocomplete="off">
+      <ul id="spotlightResults"></ul>
+    </div>
+  </div>
+
+  <div id="toast" class="toast">✅ Action completed!</div>
+  <button id="toTopBtn">⬆</button>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="jquery.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

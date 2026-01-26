@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>About — Mini Recipe Book</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+</head>
+<body>
+  <div id="scrollBar"></div>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom sticky-top" aria-label="Main navigation">
+    <div class="container">
+      <a class="navbar-brand d-flex align-items-center" href="index.html">
+        <img src="logos.png" alt="Mini Recipe Book logo" width="28" height="28" class="me-2" />
+        <span class="fw-semibold">Mini Recipe Book</span>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="mainNav">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+
+          <button id="theme-switch">
+            <svg xmlns="http://www.w3.org/2000/svg" height="48px" viewBox="0 -960 960 960" width="48px" fill="#000000"><path d="M479.96-117.37q-151.24 0-256.92-105.67-105.67-105.68-105.67-256.92t105.69-257.07Q328.74-842.87 480-842.87q7.52 0 16.04.38 8.53.38 22.29 1.38-33.85 32.96-52.66 78.88-18.8 45.93-18.8 96.49 0 91.3 63.98 155.2 63.97 63.91 155.37 63.91 50.32 0 96.37-17.19 46.04-17.18 78.76-48.27.76 11.76 1.14 18.71.38 6.96.38 13.12 0 151.22-105.84 257.05Q631.2-117.37 479.96-117.37Zm.04-68.13q104.22 0 182.35-63.91 78.13-63.92 98.37-149.89-23.09 10.28-50.08 15.3-27 5.02-53.51 4.54-113.97-3.11-194.15-82.8-80.18-79.7-83.52-195.11-.24-21.93 4.16-47.59 4.4-25.67 16.68-58.76-92.73 27.48-153.77 107.11Q185.5-576.98 185.5-480q0 122.89 85.81 208.69Q357.11-185.5 480-185.5Zm-6.39-289.11Z"/></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" height="48px" viewBox="0 -960 960 960" width="48px" fill="#000000"><path d="M480.03-348.37q54.62 0 93.23-38.57 38.61-38.56 38.61-93.09 0-54.62-38.64-93.23-38.63-38.61-93.26-38.61-54.62 0-93.11 38.64-38.49 38.63-38.49 93.26 0 54.62 38.57 93.11 38.56 38.49 93.09 38.49ZM480-280q-83 0-141.5-58.5T280-480q0-83 58.5-141.5T480-680q83 0 141.5 58.5T680-480q0 83-58.5 141.5T480-280ZM204.07-445.93H35.93v-68.14h168.14v68.14Zm720 0H755.93v-68.14h168.14v68.14Zm-478.14-310v-168.14h68.14v168.14h-68.14Zm0 720v-168.14h68.14v168.14h-68.14ZM261.76-652.02l-105.5-102.74 48.5-49.98 102.22 105.26-45.22 47.46Zm494.48 495.76-104.22-105.5L699-308.74l104.74 103.26-47.5 49.22ZM651.26-699l103.5-104.74 49.98 47.5-104.26 104.22L651.26-699Zm-495 494.24 104.5-104.22L308.74-261 205.48-156.26l-49.22-48.5ZM480-480Z"/></svg>
+          </button>
+
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link active" aria-current="page" href="about.html">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="breakfast.html">Breakfast</a></li>
+          <li class="nav-item"><a class="nav-link" href="lunch.html">Lunch</a></li>
+          <li class="nav-item"><a class="nav-link" href="dinner.html">Dinner</a></li>
+          <li class="nav-item"><a class="nav-link" href="desserts.html">Desserts</a></li>
+          <li class="nav-item"><a class="nav-link" href="favorites.html">Favorites</a></li>
+          <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+
+         
+        
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <main class="py-5">
+    <div class="container">
+      
+      <section class="mb-5">
+        <h1 class="display-6 fw-bold mb-3">About Mini Recipe Book</h1>
+        <p class="lead">
+          Welcome to <strong>Mini Recipe Book</strong> — your online recipe collection with a variety of tasty dishes for every moment of the day.
+          From quick breakfasts and light lunches to hearty dinners and sweet desserts, our website has it all.
+        </p>
+
+        
+        <p>
+          Mini Recipe Book helps you cook amazing meals at home.
+          <span id="extraText" style="display:none;">
+            We started as a small idea to make recipes accessible for students and busy people who love homemade food.
+          </span>
+        </p>
+        <button id="readMoreBtn" class="btn btn-outline-primary">Read more</button>
+      </section>
+
+      <!-- Task 5 — Animated Counters -->
+      <div class="row text-center my-5">
+        <div class="col-6 col-md-3">
+          <h2 class="counter" data-target="15">0</h2>
+          <p>Breakfast Recipes</p>
+        </div>
+
+        <div class="col-6 col-md-3">
+          <h2 class="counter" data-target="12">0</h2>
+          <p>Lunch & Dinner</p>
+        </div>
+
+        <div class="col-6 col-md-3">
+          <h2 class="counter" data-target="9">0</h2>
+          <p>Desserts</p>
+        </div>
+
+        <div class="col-6 col-md-3">
+          <h2 class="counter" data-target="4">0</h2>
+          <p>Team Members</p>
+        </div>
+      </div>
+
+      
+      <section aria-labelledby="teamHeading">
+        <h2 id="teamHeading" class="h3 fw-bold mb-4">Our Team</h2>
+        <div class="row g-4">
+          <div class="col-12 col-md-6 col-lg-3">
+            <div class="card h-100 shadow-sm">
+              <div class="card-body">
+                <h5 class="card-title">Medetkyzy Inabat</h5>
+                <p class="card-text">Created Home & About pages</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-md-6 col-lg-3">
+            <div class="card h-100 shadow-sm">
+              <div class="card-body">
+                <h5 class="card-title">Bakhtiyarov Abzal</h5>
+                <p class="card-text">Created Breakfast & Lunch pages</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-md-6 col-lg-3">
+            <div class="card h-100 shadow-sm">
+              <div class="card-body">
+                <h5 class="card-title">Issa Gulzada</h5>
+                <p class="card-text">Created Dinner & Desserts pages</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-md-6 col-lg-3">
+            <div class="card h-100 shadow-sm">
+              <div class="card-body">
+                <h5 class="card-title">Kadulbekova Asem</h5>
+                <p class="card-text">Created Favorites & Contact pages</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      
+      <section class="mt-5" aria-labelledby="faqHeading">
+        <h2 id="faqHeading" class="h4 fw-semibold mb-3">FAQ</h2>
+
+        <div class="faq-item border rounded-4 p-3 mb-2">
+          <button class="faq-toggle btn w-100 text-start" aria-expanded="false" aria-controls="faq1">
+            How do I save recipes?
+          </button>
+          <div id="faq1" class="faq-panel" style="max-height:0; overflow:hidden; transition:max-height .3s ease;">
+            <p class="mt-3 mb-0">Open any recipe and click “Favorites”.</p>
+          </div>
+        </div>
+
+        <div class="faq-item border rounded-4 p-3 mb-2">
+          <button class="faq-toggle btn w-100 text-start" aria-expanded="false" aria-controls="faq2">
+            Can I submit my own recipe?
+          </button>
+          <div id="faq2" class="faq-panel" style="max-height:0; overflow:hidden; transition:max-height .3s ease;">
+            <p class="mt-3 mb-0">Yes, use the Contact page to send it to us.</p>
+          </div>
+        </div>
+
+        <div class="faq-item border rounded-4 p-3 mb-2">
+          <button class="faq-toggle btn w-100 text-start" aria-expanded="false" aria-controls="faq3">
+            Do I need to create an account?
+          </button>
+          <div id="faq3" class="faq-panel" style="max-height:0; overflow:hidden; transition:max-height .3s ease;">
+            <p class="mt-3 mb-0">No, you can browse all recipes freely.</p>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="py-4 bg-dark text-white mt-5" role="contentinfo">
+    <div class="container text-center small">
+      Team Mini Recipe Book • Members: Abzal, Inabat, Gulzada, Asem
+    </div>
+  </footer>
+
+  <div id="spotlightOverlay">
+    <div id="spotlightBox">
+      <input type="text" id="spotlightInput" placeholder="Search recipes..." autocomplete="off">
+      <ul id="spotlightResults"></ul>
+    </div>
+  </div>
+
+  <div id="toast" class="toast">✅Action completed!</div>
+  <button id="toTopBtn">⬆</button>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="jquery.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

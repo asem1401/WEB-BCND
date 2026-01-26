@@ -1,0 +1,508 @@
+:root {
+  font-size: 16px;
+  scroll-behavior: smooth;
+
+
+  --base-color: white;
+  --base-variant: #e8e9ed;
+  --color-primary: #3B82F6; 
+     
+  --color-accent: #F97316;     
+  --color-bg: #FFF7ED;         
+  --color-card: #FFFFFF;       
+  --color-text: #232738;    
+     
+}
+
+
+
+
+/* Popup styles (Task 3) */
+.modal-simple {
+  position: fixed;
+  inset: 0;
+  display: none;
+  z-index: 1080;
+}
+.modal-simple.show {
+  display: block;
+}
+.modal-backdrop-simple {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, .4);
+}
+.modal-dialog-simple {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: min(92vw, 480px);
+}
+
+
+body {
+  font-family: "Segoe UI", Arial, sans-serif;
+  color: var(--color-text);
+  background: linear-gradient(180deg, #FFF7ED 0%, #FFEBD5 100%);
+  margin: 0;
+  line-height: 1.6;
+}
+
+
+.navbar {
+  background-color: var(--color-card);
+  border-bottom: 1px solid #f1dcc7;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+}
+.navbar-brand img {
+  border-radius: 5px;
+}
+.navbar-nav .nav-link {
+  font-weight: 500;
+  color: var(--color-text);
+  transition: color 0.3s ease;
+}
+.navbar-nav .nav-link:hover,
+.navbar-nav .nav-link.active {
+  color: var(--color-accent);
+}
+
+
+header,
+section.hero,
+.bg-body-tertiary {
+  background-color: var(--color-bg);
+}
+.hero h1,
+.display-5 {
+  color: var(--color-accent);
+}
+.hero .btn {
+  font-size: 1rem;
+  padding: 0.7rem 1.5rem;
+  background-color: var(--color-primary);
+  color: #fff;
+  border: none;
+  border-radius: 0.6rem;
+  transition: 0.3s ease;
+}
+.hero .btn:hover {
+  background-color: var(--color-accent);
+  transform: scale(1.05);
+}
+
+
+.card {
+  background-color: var(--color-card);
+  border: none;
+  border-radius: 1rem;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+  transition: transform 0.25s, box-shadow 0.3s;
+}
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+.card img {
+  object-fit: contain;
+  max-height: 200px;
+}
+.card-title {
+  color: var(--color-accent);
+  font-weight: 600;
+}
+
+
+.btn,
+.btn-primary {
+  background-color: var(--color-primary);
+  color: #fff;
+  border: none;
+  border-radius: 0.6rem;
+  padding: 0.6rem 1.2rem;
+  transition: 0.3s ease;
+}
+.btn:hover {
+  background-color: var(--color-accent);
+  transform: scale(1.05);
+}
+
+
+.carousel-item img {
+  object-fit: cover;
+   margin: 0 auto;
+  height: 400px;
+}
+.carousel-caption {
+  background: rgba(0, 0, 0, 0.4);
+  border-radius: 0.5rem;
+  padding: 1rem 1.5rem;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.8);
+}
+
+
+form {
+  background: var(--color-card);
+  border-radius: 1rem;
+  padding: 2rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+}
+form .form-control:focus {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 0.15rem rgba(59, 130, 246, 0.25);
+}
+form button {
+  background-color: var(--color-accent);
+  border: none;
+  color: #fff;
+  font-weight: 500;
+  border-radius: 0.4rem;
+  transition: 0.3s ease;
+}
+form button:hover {
+  background-color: var(--color-primary);
+  transform: scale(1.05);
+}
+
+
+footer {
+  background-color: #1E293B;
+  color: #fff;
+  font-size: 0.9rem;
+  letter-spacing: 0.3px;
+  padding: 1rem 0;
+  box-shadow: 0 -2px 12px rgba(0,0,0,0.1);
+}
+footer p {
+  margin: 0;
+  text-align: center;
+}
+ 
+
+
+a:focus,
+button:focus,
+input:focus,
+textarea:focus {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+
+@media (max-width: 992px) {
+  :root { font-size: 15px; }
+  .lead { font-size: 1rem; }
+}
+@media (max-width: 768px) {
+  :root { font-size: 14px; }
+  h1, .display-5, .display-6 { font-size: 1.8rem; }
+}
+@media (max-width: 480px) {
+  :root { font-size: 13px; }
+  h1 { font-size: 1.6rem; }
+  .lead { font-size: 0.95rem; }
+  body{ background-color: rgb(9, 255, 0);}
+}
+
+#spotlightOverlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.55);
+  display: none;
+  justify-content: center;
+  align-items: flex-start;
+  padding-top: 12vh;
+  z-index: 2000;
+}
+
+#spotlightBox {
+  background: white;
+  width: min(600px, 90vw);
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.25);
+}
+
+#spotlightInput {
+  width: 100%;
+  padding: 12px 16px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  font-size: 1.1rem;
+  margin-bottom: 12px;
+}
+
+#spotlightResults {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+#spotlightResults li {
+  padding: 10px 14px;
+  cursor: pointer;
+  border-radius: 8px;
+}
+
+#spotlightResults li:hover {
+  background: #ff9203;
+}
+
+.highlight {
+  background: yellow;
+  font-weight: bold;
+  border-radius: 3px;
+  padding: 0 2px;
+}
+
+#scrollBar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 4px;
+  width: 0%;
+  background-color: #3B82F6; /* YouTube / Tailwind blue */
+  z-index: 3000;
+  transition: width 0.1s linear;
+}
+
+.counter {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #3B82F6;
+}
+
+.toast {
+  position: fixed;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #333;
+  color: #fff;
+  padding: 12px 22px;
+  border-radius: 8px;
+  font-size: 1rem;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s ease;
+  z-index: 9999;
+}
+
+.toast.show {
+  opacity: 1;
+}
+
+.copyBtn {
+  padding: 6px 12px;
+  border: none;
+  background: #3B82F6;
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.3s;
+  margin-top: 6px;
+}
+
+.copyBtn:hover {
+  background: #2563EB;
+}
+
+
+#toTopBtn {
+  position: fixed;
+  bottom: 40px;
+  right: 40px;
+  background: #3B82F6;
+  color: #fff;
+  padding: 10px 14px;
+  border-radius: 8px;
+  border: none;
+  display: none;
+  cursor: pointer;
+  font-size: 1.2rem;
+}
+
+
+.object-fit-cover { object-fit: cover; }
+.object-fit-contain { object-fit: contain; }
+.text-shadow { text-shadow: 0 1px 2px rgba(0,0,0,0.5); }
+.rounded-4 { border-radius: 1rem; }
+.shadow-soft { box-shadow: 0 2px 6px rgba(0,0,0,0.08); }
+
+
+.lazy {
+  opacity: 0;
+  transition: opacity 1s ease-in;
+}
+
+/* Изначальный стиль */
+#theme-switch {
+  height: 50px;
+  width: 50px;
+  padding: 0;
+  border-radius: 50%;
+  background-color: var(--base-variant); /* СВЕТЛЫЙ, НЕ МЕНЯТЬ */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+#theme-switch svg {
+  width: 24px;
+  height: 24px;
+  fill: var(--primary-color);
+}
+
+/* Скрываем вторую иконку (sun/moon) */
+#theme-switch svg:last-child {
+  display: none;
+}
+
+/* В darkmode меняем местами SVG */
+.darkmode #theme-switch svg:first-child {
+  display: none;
+}
+
+.darkmode #theme-switch svg:last-child {
+  display: block;
+}
+
+/* ✅ Кнопка не должна темнеть */
+.darkmode #theme-switch {
+  background-color: var(--base-variant) !important;
+  box-shadow: 0 0 5px rgba(0,0,0,0.3);
+}
+
+/* ✅ Но иконка внутри может быть жёлтой/светлой */
+.darkmode #theme-switch svg {
+  fill: #ffd43b;
+}
+
+/* ================= DARK MODE BACKGROUND ================= */
+body.darkmode {
+  background-color: #121212 !important;  /* общий фон всей страницы */
+  color: #ffffff !important;
+}
+
+/* Убираем светлый контейнер и оставляем всё тёмным */
+body.darkmode section,
+body.darkmode .container {
+  background: #121212 !important;
+}
+
+/* ================= Футер ================= */
+body.darkmode footer {
+  background-color: #0d0d0d !important;
+  color: #ffffff !important;
+}
+
+/* ================= Заголовки, текст ================= */
+body.darkmode h1,
+body.darkmode h2,
+body.darkmode h3,
+body.darkmode p,
+body.darkmode a {
+  color: #ffffff !important;
+}
+
+/* ================= Карточки с рецептами ================= */
+body.darkmode .card {
+  background: #1a1a1a !important;
+  color: white !important;
+  border: 1px solid #333;
+}
+
+/* ================= Фон navbar: ================= */
+body.darkmode .navbar {
+  background-color: #1b1b1b !important;
+  border-bottom: 1px solid #333;
+}
+
+/* ================= Убрать оранжевый фон заднего блока (background gradient) ================= */
+body.darkmode .content-wrapper,
+body.darkmode .main-content,
+body.darkmode main {
+  background: #121212 !important;
+}
+
+/* Чтобы не было белых полос по краям */
+html, body {
+  margin: 0;
+  padding: 0;
+}
+body.darkmode header {
+  background: transparent !important;
+  color: #ffffff !important;
+}
+
+
+#favoritesContainer + .row.g-4 {
+  display: none;
+}
+
+
+#api-recipes {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+  padding: 10px;
+}
+
+.recipe-card {
+  background-color: var(--card-bg, #fff);
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  overflow: hidden;
+
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;       
+  justify-content: center; 
+  text-align: center;
+  padding: 10px 0;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.recipe-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+}
+
+.recipe-card img {
+  width: 180px;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 12px;
+  margin-bottom: 10px;      
+}
+
+button,
+a {
+  text-decoration: none;
+  color: white;
+}
+
+a:visited {
+  color: white;          /* Убираем фиолетовый цвет после клика */
+}
+
+a.open-recipe {
+  background-color: #6b5b95; /* Твой кастомный цвет */
+  color: white;
+  border-radius: 10px;
+  padding: 10px 20px;
+  display: inline-block;
+}
+
+a.open-recipe:hover {
+  background-color: #8364a5;
+}
+

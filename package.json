@@ -1,0 +1,26 @@
+{
+  "name": "web-technologies-main",
+  "version": "1.0.0",
+  "description": "The **Mini Recipe Book** is a collaborative project developed by 4 students.   It showcases a small collection of recipes with simple instructions and a clean design.   The project also serves as practice for using **GitHub** in team collaboration.",
+  "main": "jquery.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "bcryptjs": "^3.0.3",
+    "cors": "^2.8.6",
+    "dotenv": "^17.2.3",
+    "express": "^5.2.1",
+    "jsonwebtoken": "^9.0.3",
+    "mongoose": "^9.1.5"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.11"
+  }
+}
+
+
