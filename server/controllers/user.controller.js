@@ -8,3 +8,11 @@ exports.getAllUsers = async (req, res, next) => {
     next(err);
   }
 };
+
+exports.getProfile = async (req, res, next) => {
+  try {
+    res.json(req.user);
+  } catch (err) {
+    next(err);
+  }
+};

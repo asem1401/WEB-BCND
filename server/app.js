@@ -10,7 +10,7 @@ const errorMiddleware = require("./middleware/error.middleware");
 
 const app = express();
 
-// middlewares
+
 app.use(cors());
 app.use(express.json());
 
@@ -20,12 +20,12 @@ app.use("/api/users", userRoutes);
 app.use("/api/recipes", recipeRoutes);
 app.use("/api/favorites", favoriteRoutes);
 
-// health check
+
 app.get("/", (req, res) => {
   res.send("Mini Recipe Book API is running");
 });
 
-// error handler — ВСЕГДА ПОСЛЕДНИМ
+
 app.use(errorMiddleware);
 
 module.exports = app;
