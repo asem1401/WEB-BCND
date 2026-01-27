@@ -1,9 +1,8 @@
-// === MAIN SCRIPT FOR MINI RECIPE BOOK ===
-// Covers: DOM Manipulation, Event Handling, API, UX, Backend Integration
+
 
 document.addEventListener("DOMContentLoaded", () => {
 
-  // ===== CONTACT FORM VALIDATION + FETCH =====
+  
   const form = document.querySelector("#contactForm");
   if (form) {
     form.addEventListener("submit", (event) => {
@@ -37,7 +36,7 @@ document.addEventListener("DOMContentLoaded", () => {
           headers: { "Content-Type": "application/json" },
         })
           .then(() => {
-            alert("✅ Message sent!");
+            alert(" Message sent!");
             form.reset();
             errorBox.className = "alert alert-success mt-3";
             errorBox.textContent = "Форма отправлена успешно!";
@@ -50,7 +49,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // ===== DARK MODE =====
+  
   let darkmode = localStorage.getItem("darkmode");
   const themeSwitch = document.getElementById("theme-switch");
 
@@ -90,7 +89,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const token = localStorage.getItem("token");
 
     if (!token) {
-      alert("❌ Please login to add favorites");
+      alert(" Please login to add favorites");
       return;
     }
 
@@ -109,7 +108,7 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 
-// ===== THEMEALDB API + FAVORITES BUTTON =====
+
 document.addEventListener("DOMContentLoaded", () => {
   const recipeContainer = document.getElementById("api-recipes");
   const searchInput = document.getElementById("searchInput");
@@ -134,7 +133,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 recipeTitle: '${meal.strMeal}',
                 recipeImage: '${meal.strMealThumb}',
                 recipeDesc: '${meal.strInstructions.substring(0, 100)}...'
-              })">❤️ Add to favorites</button>
+              })"> Add to favorites</button>
             </div>
           `)
           .join("");

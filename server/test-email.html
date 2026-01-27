@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Email test</title>
+</head>
+<body>
+
+  <h2>Send Email</h2>
+
+  <input id="subject" placeholder="Subject" />
+  <br /><br />
+
+  <textarea id="message" placeholder="Message"></textarea>
+  <br /><br />
+
+  <button onclick="sendEmail()">Send</button>
+
+  <script>
+    async function sendEmail() {
+      const subject = document.getElementById("subject").value;
+      const message = document.getElementById("message").value;
+
+      const res = await fetch("http://localhost:5002/api/email/send-email", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ subject, message })
+      });
+
+      if (res.ok) {
+        alert("Email sent!");
+      } else {
+        alert("Error sending email");
+      }
+    }
+  </script>
+
+</body>
+</html>

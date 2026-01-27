@@ -6,7 +6,6 @@ const authMiddleware = require("../middleware/auth.middleware");
 
 router.get("/", authMiddleware, getAllUsers);
 
-// 👇 ВОТ ЭТО
 router.get("/profile", authMiddleware, getProfile);
 
 module.exports = router;
