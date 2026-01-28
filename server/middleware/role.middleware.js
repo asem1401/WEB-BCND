@@ -1,15 +1,14 @@
-
 module.exports = (...allowedRoles) => {
   return (req, res, next) => {
-    
+
+    console.log("ADMIN CHECK:", req.user);
+
     if (!req.user || !req.user.role) {
       return res.status(403).json({ message: "Access denied" });
     }
 
     if (!allowedRoles.includes(req.user.role)) {
-      return res.status(403).json({
-        message: "You do not have permission to perform this action",
-      });
+      return res.status(403).json({ message: "Forbidden" });
     }
 
     next();

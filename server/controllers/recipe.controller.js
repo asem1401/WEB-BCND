@@ -1,6 +1,8 @@
 const Recipe = require("../models/Recipe");
 
-
+// =======================
+// GET ALL RECIPES
+// =======================
 exports.getAllRecipes = async (req, res, next) => {
   try {
     const recipes = await Recipe.find();
@@ -10,7 +12,9 @@ exports.getAllRecipes = async (req, res, next) => {
   }
 };
 
-
+// =======================
+// GET RECIPE BY ID
+// =======================
 exports.getRecipeById = async (req, res, next) => {
   try {
     const recipe = await Recipe.findById(req.params.id);
@@ -25,7 +29,9 @@ exports.getRecipeById = async (req, res, next) => {
   }
 };
 
-
+// =======================
+// CREATE RECIPE
+// =======================
 exports.createRecipe = async (req, res, next) => {
   try {
     const recipe = await Recipe.create({
@@ -41,7 +47,9 @@ exports.createRecipe = async (req, res, next) => {
   }
 };
 
-
+// =======================
+// UPDATE RECIPE
+// =======================
 exports.updateRecipe = async (req, res, next) => {
   try {
     const recipe = await Recipe.findByIdAndUpdate(
@@ -60,17 +68,31 @@ exports.updateRecipe = async (req, res, next) => {
   }
 };
 
-
+// =======================
+// DELETE RECIPE (ADMIN)
+// =======================
 exports.deleteRecipe = async (req, res, next) => {
   try {
-    const recipe = await Recipe.findByIdAndDelete(req.params.id);
+    console.log("DELETE REQUEST BY:", req.user); // 👈 DEBUG
+    console.log("DELETE ID:", req.params.id);
+
+    const recipe = await Recipe.findById(req.params.id);
 
     if (!recipe) {
-      return res.status(404).json({ message: "Recipe not found" });
+      return res.status(404).json({
+        success: false,
+        message: "Recipe not found",
+      });
     }
 
-    res.json({ message: "Recipe deleted successfully" });
+    await recipe.deleteOne(); // ✅ безопасно, без socket hang up
+
+    res.json({
+      success: true,
+      message: "Recipe deleted successfully",
+    });
   } catch (error) {
-    next(error);
+    console.error("DELETE RECIPE ERROR:", error);
+    next(error); // ❗ обязательно
   }
 };

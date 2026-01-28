@@ -1,6 +1,7 @@
 const jwt = require("jsonwebtoken");
 const User = require("../models/User");
 
+
 module.exports = async (req, res, next) => {
   const authHeader = req.headers.authorization;
 
@@ -20,11 +21,14 @@ module.exports = async (req, res, next) => {
 
     req.user = {
       id: decoded.id,
-      role: user.role, // 🔥 КЛЮЧЕВО
+      role: user.role,
     };
+
+    // ✅ ВОТ ТУТ
+    console.log("AUTH USER:", req.user);
 
     next();
   } catch (error) {
-    res.status(401).json({ message: "Invalid token" });
+    return res.status(401).json({ message: "Invalid token" });
   }
 };

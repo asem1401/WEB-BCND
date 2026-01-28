@@ -5,12 +5,22 @@ const recipeController = require("../controllers/recipe.controller");
 const authMiddleware = require("../middleware/auth.middleware");
 const roleMiddleware = require("../middleware/role.middleware");
 
-router.get("/", authMiddleware, recipeController.getAllRecipes);
-router.post("/", authMiddleware, recipeController.createRecipe);
-router.get("/:id", authMiddleware, recipeController.getRecipeById);
-router.put("/:id", authMiddleware, recipeController.updateRecipe);
+router.get("/", recipeController.getAllRecipes);
+router.get("/:id", recipeController.getRecipeById);
 
-// 🔐 RBAC: только admin может удалять
+router.post(
+  "/",
+  authMiddleware,
+  roleMiddleware("admin"),
+  recipeController.createRecipe
+);
+
+router.patch(
+  "/:id",
+  authMiddleware,
+  recipeController.updateRecipe
+);
+
 router.delete(
   "/:id",
   authMiddleware,

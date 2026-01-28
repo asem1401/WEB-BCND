@@ -5,14 +5,15 @@ exports.sendEmail = async (req, res) => {
     const { email, message } = req.body;
 
     if (!email || !message) {
-      return res
-        .status(400)
-        .json({ success: false, message: "Email and message are required" });
+      return res.status(400).json({
+        success: false,
+        message: "Email and message are required",
+      });
     }
 
     const transporter = nodemailer.createTransport({
       host: process.env.SMTP_HOST,
-      port: process.env.SMTP_PORT,
+      port: Number(process.env.SMTP_PORT),
       secure: false,
       auth: {
         user: process.env.SMTP_USER,
@@ -21,19 +22,27 @@ exports.sendEmail = async (req, res) => {
     });
 
     await transporter.sendMail({
-      from: process.env.EMAIL_FROM,      // ✅ подтверждённый sender
-      to: process.env.EMAIL_FROM,        // ✅ отправляешь СЕБЕ
-      replyTo: email,                    // ✅ email пользователя
+      from: process.env.EMAIL_FROM,      // подтверждённый sender
+      to: process.env.EMAIL_TO,          // ТВОЯ почта
+      replyTo: email,                    // почта пользователя
       subject: "Contact form message",
-      text: message,
+      text: `
+From: ${email}
+
+Message:
+${message}
+      `,
     });
 
-    res.json({ success: true, message: "Email sent" });
+    res.json({
+      success: true,
+      message: "Email sent successfully",
+    });
   } catch (error) {
     console.error("EMAIL ERROR:", error);
     res.status(500).json({
       success: false,
-      message: error.message, // 👈 покажет реальную причину
+      message: error.message,
     });
   }
 };

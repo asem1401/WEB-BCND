@@ -2,39 +2,61 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Email test</title>
+  <title>Email Test</title>
 </head>
 <body>
 
-  <h2>Send Email</h2>
+  <h2>Send Email (Test Page)</h2>
 
-  <input id="subject" placeholder="Subject" />
+  <input id="email" placeholder="Your email" />
   <br /><br />
 
   <textarea id="message" placeholder="Message"></textarea>
   <br /><br />
 
-  <button onclick="sendEmail()">Send</button>
+  <button id="sendBtn">Send</button>
+
+  
+  <script src="api.js"></script>
 
   <script>
-    async function sendEmail() {
-      const subject = document.getElementById("subject").value;
-      const message = document.getElementById("message").value;
+    document.getElementById("sendBtn").addEventListener("click", async () => {
+      const email = document.getElementById("email").value.trim();
+      const message = document.getElementById("message").value.trim();
 
-      const res = await fetch("http://localhost:5002/api/email/send-email", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify({ subject, message })
-      });
-
-      if (res.ok) {
-        alert("Email sent!");
-      } else {
-        alert("Error sending email");
+      if (!email || !message) {
+        alert("Please fill in all fields");
+        return;
       }
-    }
+
+      try {
+        const res = await fetch(`${API_URL}/api/email/send`, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify({
+            email,
+            message
+          })
+        });
+
+        const data = await res.json();
+
+        if (!res.ok) {
+          alert(data.message || "Error sending email");
+          return;
+        }
+
+        alert("✅ Email sent successfully!");
+        document.getElementById("email").value = "";
+        document.getElementById("message").value = "";
+
+      } catch (err) {
+        console.error(err);
+        alert("❌ Server error");
+      }
+    });
   </script>
 
 </body>
