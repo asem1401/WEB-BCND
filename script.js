@@ -1,7 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-  // ===============================
-  // CONTACT FORM → BACKEND SMTP
-  // ===============================
+  
   const form = document.querySelector("#contactForm");
 
   if (form) {
@@ -22,11 +20,11 @@ document.addEventListener("DOMContentLoaded", () => {
       if (!message) errors.push("Введите сообщение.");
 
       let errorBox = document.querySelector("#formErrors");
-      if (!errorBox) → {
-        errorBox = document.createElement("div");
-        errorBox.id = "formErrors";
-        form.appendChild(errorBox);
-      }
+if (!errorBox) {
+  errorBox = document.createElement("div");
+  errorBox.id = "formErrors";
+  form.appendChild(errorBox);
+}
 
       if (errors.length > 0) {
         errorBox.className = "alert alert-danger mt-3";
@@ -34,7 +32,7 @@ document.addEventListener("DOMContentLoaded", () => {
         return;
       }
 
-      // 🔥 REAL BACKEND EMAIL REQUEST
+      
       fetch("http://localhost:5002/api/email/send", {
         method: "POST",
         headers: {
@@ -63,9 +61,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // ===============================
-  // DARK MODE
-  // ===============================
+  
   let darkmode = localStorage.getItem("darkmode");
   const themeSwitch = document.getElementById("theme-switch");
 
@@ -88,9 +84,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // ===============================
-  // GREETING BANNER
-  // ===============================
+  
   const greetingBanner = document.createElement("div");
   greetingBanner.className = "alert alert-info text-center m-0";
   document.body.prepend(greetingBanner);
@@ -103,9 +97,7 @@ document.addEventListener("DOMContentLoaded", () => {
       ? "🌤️ Good afternoon!"
       : "🌙 Good evening!";
 
-  // ===============================
-  // FAVORITES → BACKEND API
-  // ===============================
+  
   window.addToFavorites = function (recipe) {
     const token = localStorage.getItem("token");
 
@@ -128,9 +120,7 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 });
 
-// ===============================
-// RECIPES FROM EXTERNAL API
-// ===============================
+
 document.addEventListener("DOMContentLoaded", () => {
   const recipeContainer = document.getElementById("api-recipes");
   const searchInput = document.getElementById("searchInput");
@@ -179,3 +169,28 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 });
+
+document.addEventListener("DOMContentLoaded", () => {
+  const token = localStorage.getItem("token");
+  const user = JSON.parse(localStorage.getItem("user"));
+
+  const navGuest = document.getElementById("navAuthGuest");
+  const navUser = document.getElementById("navAuthUser");
+  const navUserName = document.getElementById("navUserName");
+
+  if (token && user) {
+    if (navGuest) navGuest.classList.add("d-none");
+    if (navUser) navUser.classList.remove("d-none");
+    if (navUserName) navUserName.textContent = user.name || "User";
+  } else {
+    if (navGuest) navGuest.classList.remove("d-none");
+    if (navUser) navUser.classList.add("d-none");
+  }
+});
+
+
+function logout() {
+  localStorage.removeItem("token");
+  localStorage.removeItem("user");
+  window.location.href = "auth.html";
+}
