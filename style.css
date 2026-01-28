@@ -17,7 +17,7 @@
 
 
 
-/* Popup styles (Task 3) */
+
 .modal-simple {
   position: fixed;
   inset: 0;
@@ -266,7 +266,7 @@ img {
   left: 0;
   height: 4px;
   width: 0%;
-  background-color: #3B82F6; /* YouTube / Tailwind blue */
+  background-color: #3B82F6; 
   z-index: 3000;
   transition: width 0.1s linear;
 }
@@ -340,13 +340,13 @@ img {
   transition: opacity 1s ease-in;
 }
 
-/* Изначальный стиль */
+
 #theme-switch {
   height: 50px;
   width: 50px;
   padding: 0;
   border-radius: 50%;
-  background-color: var(--base-variant); /* СВЕТЛЫЙ, НЕ МЕНЯТЬ */
+  background-color: var(--base-variant); 
   display: flex;
   justify-content: center;
   align-items: center;
@@ -365,7 +365,7 @@ img {
   display: none;
 }
 
-/* В darkmode меняем местами SVG */
+
 .darkmode #theme-switch svg:first-child {
   display: none;
 }
@@ -374,36 +374,36 @@ img {
   display: block;
 }
 
-/* ✅ Кнопка не должна темнеть */
+
 .darkmode #theme-switch {
   background-color: var(--base-variant) !important;
   box-shadow: 0 0 5px rgba(0,0,0,0.3);
 }
 
-/* ✅ Но иконка внутри может быть жёлтой/светлой */
+
 .darkmode #theme-switch svg {
   fill: #ffd43b;
 }
 
-/* ================= DARK MODE BACKGROUND ================= */
+
 body.darkmode {
-  background-color: #121212 !important;  /* общий фон всей страницы */
+  background-color: #121212 !important;  
   color: #ffffff !important;
 }
 
-/* Убираем светлый контейнер и оставляем всё тёмным */
+
 body.darkmode section,
 body.darkmode .container {
   background: #121212 !important;
 }
 
-/* ================= Футер ================= */
+
 body.darkmode footer {
   background-color: #0d0d0d !important;
   color: #ffffff !important;
 }
 
-/* ================= Заголовки, текст ================= */
+
 body.darkmode h1,
 body.darkmode h2,
 body.darkmode h3,
@@ -412,27 +412,27 @@ body.darkmode a {
   color: #ffffff !important;
 }
 
-/* ================= Карточки с рецептами ================= */
+
 body.darkmode .card {
   background: #1a1a1a !important;
   color: white !important;
   border: 1px solid #333;
 }
 
-/* ================= Фон navbar: ================= */
+
 body.darkmode .navbar {
   background-color: #1b1b1b !important;
   border-bottom: 1px solid #333;
 }
 
-/* ================= Убрать оранжевый фон заднего блока (background gradient) ================= */
+
 body.darkmode .content-wrapper,
 body.darkmode .main-content,
 body.darkmode main {
   background: #121212 !important;
 }
 
-/* Чтобы не было белых полос по краям */
+
 html, body {
   margin: 0;
   padding: 0;
@@ -491,11 +491,11 @@ a {
 }
 
 a:visited {
-  color: white;          /* Убираем фиолетовый цвет после клика */
+  color: white;          
 }
 
 a.open-recipe {
-  background-color: #6b5b95; /* Твой кастомный цвет */
+  background-color: #6b5b95; 
   color: white;
   border-radius: 10px;
   padding: 10px 20px;
