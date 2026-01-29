@@ -38,10 +38,11 @@ if (!errorBox) {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({
-          email,
-          message,
-        }),
+       body: JSON.stringify({
+  name,
+  email,
+  message,
+}),
       })
         .then((res) => res.json())
         .then((data) => {

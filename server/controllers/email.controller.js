@@ -4,45 +4,30 @@ exports.sendEmail = async (req, res) => {
   try {
     const { email, message } = req.body;
 
-    if (!email || !message) {
-      return res.status(400).json({
-        success: false,
-        message: "Email and message are required",
-      });
-    }
+    const testAccount = await nodemailer.createTestAccount();
 
     const transporter = nodemailer.createTransport({
-      host: process.env.SMTP_HOST,
-      port: Number(process.env.SMTP_PORT),
-      secure: false,
+      host: testAccount.smtp.host,
+      port: testAccount.smtp.port,
+      secure: testAccount.smtp.secure,
       auth: {
-        user: process.env.SMTP_USER,
-        pass: process.env.SMTP_PASS,
+        user: testAccount.user,
+        pass: testAccount.pass,
       },
     });
 
-    await transporter.sendMail({
-      from: process.env.EMAIL_FROM,      // подтверждённый sender
-      to: process.env.EMAIL_TO,          // ТВОЯ почта
-      replyTo: email,                    // почта пользователя
+    const info = await transporter.sendMail({
+      from: '"Mini Recipe Book" <test@ethereal.email>',
+      to: email,
       subject: "Contact form message",
-      text: `
-From: ${email}
-
-Message:
-${message}
-      `,
+      text: message,
     });
 
     res.json({
       success: true,
-      message: "Email sent successfully",
+      preview: nodemailer.getTestMessageUrl(info),
     });
-  } catch (error) {
-    console.error("EMAIL ERROR:", error);
-    res.status(500).json({
-      success: false,
-      message: error.message,
-    });
+  } catch (err) {
+    res.status(500).json({ success: false, message: err.message });
   }
 };

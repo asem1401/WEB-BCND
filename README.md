@@ -176,3 +176,21 @@ This project was developed as part of the Web Technologies / Backend Development
 	•	Database integration
 	•	Frontend and backend communication
 	•	Real-world web application structure
+
+	## Screenshots
+
+### Home Page
+Main page with navigation and recipe categories.
+![Home Page](screenshots/home.png)
+
+### Recipes Page
+List of recipes with detailed view.
+![Recipes](screenshots/about.png)
+
+### Favorites
+Users can save favorite recipes.
+![Favorites](screenshots/favorites.png)
+
+### Contact Form
+Contact form with email integration using Nodemailer.
+![Contact](screenshots/contact.png)
