@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Auth — Mini Recipe Book</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="auth-page">
+
+  <div class="auth-card">
+    <h3>Mini Recipe Book</h3>
+    <p id="formTitle">Login to your account</p>
+
+    <div id="errorBox" class="auth-error" style="display:none;"></div>
+
+    <form id="authForm">
+
+      
+      <div class="mb-3" id="nameField" style="display:none;">
+        <input type="text" id="name" class="form-control" placeholder="Name" />
+      </div>
+
+      <div class="mb-3">
+        <input type="email" id="email" class="form-control" placeholder="Email" required />
+      </div>
+
+      <div class="mb-3">
+        <input type="password" id="password" class="form-control" placeholder="Password" required />
+      </div>
+
+      <button type="submit" class="btn w-100" id="submitBtn">Login</button>
+    </form>
+
+    <div class="auth-switch mt-3">
+      Don’t have an account?
+      <a href="#" onclick="toggleMode()">Register</a>
+    </div>
+  </div>
+
+  <script src="api.js"></script>
+  <script src="auth.js"></script>
+</body>
+</html>
